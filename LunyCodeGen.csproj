@@ -12,4 +12,9 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Luny.csproj" />
+    <ProjectReference Include="..\LunyLua.csproj" />
+  </ItemGroup>
+
 </Project>
