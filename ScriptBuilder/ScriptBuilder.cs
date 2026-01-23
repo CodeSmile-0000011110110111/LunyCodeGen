@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace Luny.CodeGen
+namespace LunyCodeGen
 {
 	/// <summary>
 	///     Wrapper for StringBuilder that makes it easy to create indent formatted text files, like scripts.

@@ -1,6 +1,6 @@
 using System;
 
-namespace Luny.CodeGen
+namespace LunyCodeGen
 {
 	[Flags]
 	public enum Space
