@@ -17,7 +17,7 @@ namespace Luny.CodeGen
 	/// </summary>
 	public sealed class ScriptBuilder
 	{
-		private static String[] s_Keywords;
+		private static String[] s_Keywords = Array.Empty<String>();
 
 		private readonly StringBuilder m_StringBuilder;
 		private readonly List<String> m_Indentations = new();
@@ -29,9 +29,9 @@ namespace Luny.CodeGen
 		/// </summary>
 		public Int32 IndentLevel { get; private set; }
 
-		private static void InitSymbolsLookupTable()
+		private static String[] InitSymbolsLookupTable()
 		{
-			if (s_Keywords == null)
+			if (s_Keywords.Length == 0)
 			{
 				var keywords = Enum.GetNames(typeof(Keyword));
 				var keywordCount = keywords.Length;
@@ -40,6 +40,8 @@ namespace Luny.CodeGen
 				for (var i = 0; i < keywordCount; ++i)
 					s_Keywords[i] = keywords[i].ToLower();
 			}
+
+			return s_Keywords;
 		}
 
 		private static String GetCharacter(Character character) => character switch
@@ -67,9 +69,9 @@ namespace Luny.CodeGen
 		/// <param name="value">Starting string.</param>
 		/// <param name="indentChar">Default: whitespace</param>
 		/// <param name="indentCharRepeat">Default: 4</param>
-		public ScriptBuilder(String value = null, Char indentChar = ' ', Int32 indentCharRepeat = 4)
+		public ScriptBuilder(String value = "", Char indentChar = ' ', Int32 indentCharRepeat = 4)
 		{
-			InitSymbolsLookupTable();
+			s_Keywords = InitSymbolsLookupTable();
 			m_StringBuilder = new StringBuilder(value);
 			m_IndentChar = indentChar;
 			m_IndentCharRepeat = Math.Max(1, indentCharRepeat);
