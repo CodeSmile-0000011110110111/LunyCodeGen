@@ -4,7 +4,7 @@ namespace LunyCodeGen
 {
 	internal class Program
 	{
-		const string Version = "0.1.0";
+		private const String Version = "0.1.0";
 
 		private static Int32 Main(String[] args)
 		{
